@@ -21,12 +21,12 @@ window.onload = function() {
     // One Elite Galaxy ~= 1/2 Traveller Sector
     // Range (7 Elite LY) ~= Traveller Jump-2
     UNIT_SCALE = 0.4;
-    HEX_WIDTH = 32;
+    HEX_WIDTH = 36;
     HEX_HEIGHT = 17;
     JUMP_RANGE = 2;
   } else {
     // 1 Elite Unit = 1 Traveller LY
-    // One Elite Galaxy = 2.5 Traveller Sectors
+    // One Elite Galaxy = 3 Traveller Sectors
     // Range (7 Elite LY) ~= Traveller Jump-6
     UNIT_SCALE = 1;
     HEX_WIDTH = 32 * 3;
