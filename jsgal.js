@@ -319,16 +319,6 @@ window.onload = function() {
     return ha < hb ? -1 : ha > hb ? 1 : 0;
   });
 
-  // TODO:
-  //  * Hyd (via goat soup, economy)
-  //  * Atm (via goat soup, economy)
-  //  * Law (via goat soup, economy)
-  //  * Belts, Giants
-  //  * Stellar data
-  //
-  //  * Prevent coincident worlds (jitter?)
-  //  * Add trade routes
-
   var out = document.createElement('pre');
   document.body.appendChild(out);
   var FORMAT = '%-12s %-4s %-9s %s %-16s %s %s %s\n';
