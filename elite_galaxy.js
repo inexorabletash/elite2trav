@@ -1,7 +1,4 @@
-
-
 (function(global) {
-
   // Defines a global function Galaxy(num) (num in 1...8)
   // Returns an array of PlanetarySystem objects:
   // {
@@ -16,6 +13,7 @@
   //    productivity: in MCr
   //    radius:       in km
   //  }
+
   var GOVERNMENT_NAMES = ["Anarchy", "Feudal", "Multi-gov", "Dictatorship",
                           "Communist", "Confederacy", "Democracy", "Corporate State"];
 
@@ -134,7 +132,7 @@
                    this.govtype, GOVERNMENT_NAMES[this.govtype],
                    this.techlev + 1,this.productivity,
                    this.radius,
-                   this.population >> 3,
+                   this.population / 10,
                    this.description);
   };
 
@@ -187,10 +185,10 @@
 
     var out = "";
     var i;
-    for (; ; ) {
-      if (source.length === 0) {
+    while (true) {
+      if (source.length === 0)
         break;
-      }
+
       var c = source.charCodeAt(0);
       source = source.substring(1);
       if (c < 0x80) {

@@ -310,7 +310,8 @@ window.onload = function() {
       remarks: sys2rem(system),
       zone: sys2zone(system),
       pbg: sys2pbg(system),
-      alleg: 'Na'
+      alleg: 'Na',
+      stellar: ''
     };
   }
 
@@ -321,10 +322,10 @@ window.onload = function() {
 
   var out = document.createElement('pre');
   document.body.appendChild(out);
-  var FORMAT = '%-12s %-4s %-9s %s %-16s %s %s %s\n';
+  var FORMAT = '%-12s %-4s %-9s %s %-16s %s %s %s %-20s\n';
   out.appendChild(document.createTextNode(
     sprintf(FORMAT,
-            'Name', 'Hex', 'UWP', 'B', 'Remarks', 'Z', 'PBG', 'Al') +
+            'Name', 'Hex', 'UWP', 'B', 'Remarks', 'Z', 'PBG', 'Al', 'Stellar') +
     gal.map(function(system) {
       var trav = elite2traveller(system);
       return sprintf(
@@ -336,7 +337,8 @@ window.onload = function() {
         trav.remarks,
         trav.zone,
         trav.pbg,
-        trav.alleg
+        trav.alleg,
+        trav.stellar
       );
     }).join('')));
 };
