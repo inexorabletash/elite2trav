@@ -1,6 +1,21 @@
 document.addEventListener('DOMContentLoaded', function() {
   var $ = function(s) { return document.querySelector(s); };
 
+  var searchParams = (function(url) {
+    var params = {};
+    if (!url.search) return params;
+    url.search.substring(1).split(/&/g).forEach(function(pair) {
+      var kv = pair.split(/=/);
+      params[decodeURIComponent(kv[0])] = decodeURIComponent(kv[1]);
+    });
+    return params;
+  }(window.location));
+
+  if ('gal' in searchParams)
+    $('#galaxy').value = searchParams.gal;
+  if ('style' in searchParams)
+    $('#style').value = searchParams.style;
+
   $('#galaxy').addEventListener('change', function() {
     refresh();
   });
