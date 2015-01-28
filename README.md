@@ -36,3 +36,24 @@ another way, everything can be scaled up by 2.5. When this is done, an
 Elite Galaxy spans just about three Traveller sectors wide and one
 sector tall. Maximum range is Jump-6, and the sparser nature of the
 Elite galaxies is maintained. (parameter: `style=0`)
+
+## About
+
+Traveller was a pencil-and-paper role playing game created by Marc
+Miller, Loren Wiseman and others at Game Designers' Workshop in 1977.
+You can find out more about Traveller at [Far Future
+Enterprises](http://farfuture.net) or explore an online map of the
+Traveller Universe at [The Traveller Map](http://travellermap.com)
+
+Elite is the seminal space combat and trading game, written by Ian
+Bell and David Braben in 1984 for the BBC Microcomputer. Numerous
+ports, adaptations and sequel games have been released. [Ian Bell's
+Page](http://www.iancgbell.clara.net/elite) details the history of the
+game. The open source game [Oolite](http://www.oolite.org/) is based
+on the original Elite. Braben's [Frontier
+Developments](http://www.frontier.co.uk/) has published [Elite:
+Dangerous](https://www.elitedangerous.com/), featuring a massive
+multiplayer universe encouraging trade, combat, and exploration.
+
+Ian Bell has confirmed that [Traveller was one of the direct
+inspirations of Elite](http://www.konradlischka.info/2013/07/rpg/how-old-school-role-playing-influenced-elite/).

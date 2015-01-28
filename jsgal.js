@@ -47,6 +47,8 @@ window.onload = function() {
 
   // ------------------------------------------------------------------------
 
+  // Generate the Elite galaxy, then convert each system to Traveller
+
   var gal = Galaxy(galnum);
   gal.forEach(function(system) {
     system.traveller = elite2traveller(system, e2t);
@@ -207,7 +209,7 @@ window.onload = function() {
   // ------------------------------------------------------------------------
 
 
-  gal = gal.sort(function(a, b) {
+  gal.sort(function(a, b) {
     var ha = a.traveller.hex, hb = b.traveller.hex;
     return ha < hb ? -1 : ha > hb ? 1 : 0;
   });
