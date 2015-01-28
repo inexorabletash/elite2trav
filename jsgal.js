@@ -48,6 +48,12 @@ window.onload = function() {
   // ------------------------------------------------------------------------
 
   var gal = Galaxy(galnum);
+  gal.forEach(function(system) {
+    system.traveller = elite2traveller(system);
+  });
+
+  // ------------------------------------------------------------------------
+
   var canvas = document.createElement('canvas');
   document.body.appendChild(canvas);
 
@@ -85,8 +91,8 @@ window.onload = function() {
   ctx.strokeStyle = 'rgba(255, 255, 0, 0.25)';
   ctx.beginPath();
   forEachPair(gal, function(sys1, sys2) {
-    var hex1 = sys2hex(sys1);
-    var hex2 = sys2hex(sys2);
+    var hex1 = sys1.traveller.hex;
+    var hex2 = sys2.traveller.hex;
     var d = dist(hex1, hex2);
     if (d > JUMP_RANGE) return;
     var c1 = hexToCoords(hex1 / 100, hex1 % 100);
@@ -113,8 +119,8 @@ window.onload = function() {
   ctx.strokeStyle = 'rgba(80, 80, 80, 0.5)';
   ctx.beginPath();
   forEachPair(gal, function(sys1, sys2) {
-    var hex1 = sys2hex(sys1);
-    var hex2 = sys2hex(sys2);
+    var hex1 = sys1.traveller.hex;
+    var hex2 = sys2.traveller.hex;
     var d = dist(hex1, hex2);
     if (d > JUMP_RANGE) return;
     var c1 = hexToCoords(hex1 / 100, hex1 % 100);
@@ -198,16 +204,17 @@ window.onload = function() {
     return Math.max(adx - ody, ody, adx);
   }
 
-  function sys2hex(system) {
-    var hex = e2t(system.x, system.y);
-    return sprintf('%02d%02d', hex.x, hex.y);
-  }
-
   // ------------------------------------------------------------------------
 
   function elite2traveller(system) {
     function toEHex(n) {
       return '0123456789ABCDEFGHJKLMNPQRSTUVW'.charAt(n);
+    }
+
+    // Hex
+    function sys2hex(system) {
+      var hex = e2t(system.x, system.y);
+      return sprintf('%02d%02d', hex.x, hex.y);
     }
 
     // UWP
@@ -316,7 +323,7 @@ window.onload = function() {
   }
 
   gal = gal.sort(function(a, b) {
-    var ha = sys2hex(a), hb = sys2hex(b);
+    var ha = a.traveller.hex, hb = b.traveller.hex;
     return ha < hb ? -1 : ha > hb ? 1 : 0;
   });
 
@@ -327,7 +334,7 @@ window.onload = function() {
     sprintf(FORMAT,
             'Name', 'Hex', 'UWP', 'B', 'Remarks', 'Z', 'PBG', 'Al', 'Stellar') +
     gal.map(function(system) {
-      var trav = elite2traveller(system);
+      var trav = system.traveller;
       return sprintf(
         FORMAT,
         trav.name,
