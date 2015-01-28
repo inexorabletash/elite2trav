@@ -26,9 +26,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
   refresh();
 
+  // ------------------------------------------------------------------------
+
   function refresh() {
     var galnum = $('#galaxy').value | 0;
     var style = !!($('#style').value | 0);
+
+    $('#oolite').href = sprintf(
+      'http://wiki.alioth.net/index.php/File:StarChart-Galaxy-%03d.png',
+      galnum - 1);
 
     // ------------------------------------------------------------------------
 
