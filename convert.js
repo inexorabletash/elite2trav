@@ -11,10 +11,7 @@
 
   // UWP
   function sys2uwp(system) {
-    var st =
-          system.techlev > 10 ? 'A' :
-          'B';
-
+    var st = system.techlev > 10 ? 'A' : 'B';
     var siz = toEHex(Math.round(system.radius / 1600));
     var atm =
           /vacuum/.test(system.description) ? '0' :
@@ -25,7 +22,7 @@
           /vast oceans/.test(system.description) ? 'A' :
           /oceans/.test(system.description) ? '7' :
           '3';
-    var pop = toEHex(Math.floor(Math.log10(system.population / 10 * 1e9)));
+    var pop = toEHex(Math.floor(Math.log10(system.population * 1e8)));
     var gov = [
       '0', // Anarchy => No Government Structure
       '5', // Feudal => Feudal Technocracy
@@ -47,16 +44,16 @@
   // Remarks
   function sys2rem(system) {
     var rem = [
-      'In Ri',
-      'In',
-      'In Po',
-      'In',
-      'Ag',
-      'Ag Ri',
-      'Ag',
-      'Ag Po'
+      'In Ri', // Rich Ind
+      'In',    // Average Ind
+      'In Po', // Poor Ind
+      'In',    // Mainly Ind
+      'Ag',    // Mainly Agri
+      'Ag Ri', // Rich Agri
+      'Ag',    // Average Agri
+      'Ag Po'  // Poor Agri
     ][system.economy];
-    if ((system.population / 8 * 1e9) > 1e9)
+    if ((system.population * 1e8) > 1e9)
       rem += ' Hi';
     if (/vacuum/.test(system.description))
       rem += ' Va';
@@ -64,7 +61,7 @@
       rem += ' Fl';
     if (/vast oceans/.test(system.description))
       rem += ' Wa';
-    return rem;
+    return rem.split(' ').sort().join(' ');
   }
 
   var RED_WORDS = new Set([
@@ -81,14 +78,14 @@
       return 'R';
     if (words.some(function(word) { return AMBER_WORDS.has(word); }))
       return 'A';
-    if (system.govtype === 0)
+    if (system.govtype === 0) // Anarchy
       return 'A';
     return ' ';
   }
 
   // PBG
   function sys2pbg(system) {
-    var pop = system.population / 8 * 1e9;
+    var pop = system.population * 1e8;
     var exp = Math.floor(Math.log10(pop));
     var pmult = Math.floor(pop / Math.pow(10, exp));
     return sprintf('%dXX', pmult);
@@ -103,7 +100,7 @@
       remarks: sys2rem(system),
       zone: sys2zone(system),
       pbg: sys2pbg(system),
-      alleg: 'Na',
+      alleg: 'Xx',
       stellar: ''
     };
   }

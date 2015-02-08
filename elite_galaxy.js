@@ -9,7 +9,7 @@
   //    govtype:      0...7 - see GOVERNMENT_NAMES
   //    economy:      0...7 - see ECONOMY_NAMES
   //    techlev:      1...15
-  //    population:   in tenths of billions
+  //    population:   in hundreds of millions
   //    productivity: in MCr
   //    radius:       in km
   //  }
