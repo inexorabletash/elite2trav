@@ -1,3 +1,4 @@
+/*global sprintf*/
 (function(global) {
   function toEHex(n) {
     return '0123456789ABCDEFGHJKLMNPQRSTUVW'.charAt(n);

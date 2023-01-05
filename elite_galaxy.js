@@ -1,3 +1,4 @@
+/*global sprintf*/
 (function(global) {
   // Defines a global function Galaxy(num) (num in 1...8)
   // Returns an array of PlanetarySystem objects:
@@ -185,7 +186,7 @@
 
     var out = "";
     var i;
-    while (true) {
+    for (;;) {
       if (source.length === 0)
         break;
 

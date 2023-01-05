@@ -1,3 +1,4 @@
+/*global sprintf, Galaxy, elite2traveller*/
 document.addEventListener('DOMContentLoaded', function() {
   var $ = function(s) { return document.querySelector(s); };
 
@@ -80,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ------------------------------------------------------------------------
 
-    canvas = $('#canvas');
+    var canvas = $('#canvas');
 
     var SCALE = 4;
     canvas.width = 280 * SCALE;
